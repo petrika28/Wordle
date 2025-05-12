@@ -15,12 +15,12 @@ A fun and interactive Java-based **Wordle game** where players try to guess a 5-
 ## **Installation**
 1. Clone the repository to your local machine:
     ```bash
-    git clone https://github.com/your-username/wordle-game.git
+    git clone https://github.com/petrika28/Wordle.git
     ```
 
 2. Navigate into the project directory:
     ```bash
-    cd wordle-game
+    cd Wordle
     ```
 
 3. Ensure you have **Java** installed (Java 8 or above).
