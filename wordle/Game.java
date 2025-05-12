@@ -201,7 +201,7 @@ public class Game extends JFrame implements KeyListener {
     }
 
     public void lexoSkedar() {
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\User\\Desktop\\fjalori.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("fjalori.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 Fjalori fjalori = new Fjalori();
