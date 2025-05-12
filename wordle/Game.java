@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Set;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -98,7 +99,7 @@ public class Game extends JFrame implements KeyListener {
                     rreshti++;
                     kolona = 0;
                 }
-            } else if (!controller.checkColsFilled(kolona)&&rreshti<5) {
+            } else if (!controller.checkColsFilled(kolona) && rreshti < 5) {
                 Popup pop = new Popup("Fjala duhet te kete 5 shkronja");
 
             }
@@ -117,18 +118,24 @@ public class Game extends JFrame implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        Set<Integer> excludedKeys = Set.of(
+                KeyEvent.VK_CAPS_LOCK,
+                KeyEvent.VK_BACK_SPACE,
+                KeyEvent.VK_WINDOWS,
+                KeyEvent.VK_SHIFT,
+                KeyEvent.VK_ALT);
 
         String shkronjaEvendosur = KeyEvent.getKeyText(e.getKeyCode());
         if (Character.isLetter(shkronjaEvendosur.charAt(0))) {
 
-            if (e.getKeyCode() != KeyEvent.VK_CAPS_LOCK && e.getKeyCode() != KeyEvent.VK_BACK_SPACE) {
+            if (!excludedKeys.contains(e.getKeyCode())) {
 
                 if (kolona != randkol) {
 
                     if (kolona < 5) {
                         shkronjat[rreshti][kolona].setText(shkronjaEvendosur);
                         kolona++;
-                       
+
                     }
 
                 }
@@ -152,7 +159,6 @@ public class Game extends JFrame implements KeyListener {
     public void keyReleased(KeyEvent e) {
 
     }
-
 
     class FshiOnClick implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -207,7 +213,5 @@ public class Game extends JFrame implements KeyListener {
         }
 
     }
-
-   
 
 }
